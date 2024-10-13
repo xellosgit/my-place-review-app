@@ -1,6 +1,6 @@
 import { FirebaseError } from "firebase/app"; // Імпортуємо FirebaseError
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth"; // Переконайтеся, що цей рядок правильний
 import { auth } from "../lib/firebase";
 
 export default function LoginForm() {
