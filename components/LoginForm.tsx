@@ -1,35 +1,21 @@
-<<<<<<< HEAD
 import { FirebaseError } from "firebase/app"; // Імпортуємо FirebaseError
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../lib/firebase";
-=======
-import { FirebaseError } from 'firebase/app'; // Імпортуємо FirebaseError
-import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/firebase';
->>>>>>> 47185d1dc4e3547641e89b167e1366609879f0d1
 
 export default function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState<string>(""); // Вказуємо тип для useState
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-<<<<<<< HEAD
       alert("Successfully logged in!");
-    } catch (err) {
+    } catch (err: unknown) {
       const error = err as FirebaseError; // Приводимо помилку до типу FirebaseError
       setError(error.message || "An unexpected error occurred.");
-=======
-      alert('Successfully logged in!');
-    } catch (err) {
-      const error = err as FirebaseError; // Приводимо помилку до типу FirebaseError
-      setError(error.message || 'An unexpected error occurred.');
->>>>>>> 47185d1dc4e3547641e89b167e1366609879f0d1
     }
   };
 
