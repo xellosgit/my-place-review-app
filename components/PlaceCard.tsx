@@ -1,12 +1,6 @@
 // components/PlaceCard.tsx
+import { Place } from "../types"; // Імпортуємо тип Place
 import Link from "next/link";
-
-interface Place {
-  id: number;
-  name: string;
-  description: string;
-  rating: number;
-}
 
 export default function PlaceCard({ place }: { place: Place }) {
   return (

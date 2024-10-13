@@ -1,6 +1,6 @@
-// lib/firebase.ts
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; // Імпорт Firestore
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPVeZWgqA3Hu1dK7Hfx8v3BcFxw4Xu_AI",
@@ -12,9 +12,8 @@ const firebaseConfig = {
   measurementId: "G-1XTEM7DZ0K",
 };
 
-// Ініціалізуємо додаток
 const app = initializeApp(firebaseConfig);
 
-// Експортуємо Firebase Auth для використання в додатку
 export const auth = getAuth(app);
+export const db = getFirestore(app); // Ініціалізуйте Firestore
 export default app;
