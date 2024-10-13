@@ -1,20 +1,21 @@
-// components/LoginForm.tsx
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../lib/firebase";
+import { FirebaseError } from 'firebase/app'; // Імпортуємо FirebaseError
+import { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/firebase';
 
 export default function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Successfully logged in!");
-    } catch (err: any) {
-      setError(err.message);
+      alert('Successfully logged in!');
+    } catch (err) {
+      const error = err as FirebaseError; // Приводимо помилку до типу FirebaseError
+      setError(error.message || 'An unexpected error occurred.');
     }
   };
 
