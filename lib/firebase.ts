@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // Імпорт Firestore
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBPVeZWgqA3Hu1dK7Hfx8v3BcFxw4Xu_AI",
+  apiKey: "",
   authDomain: "my-place-review-app.firebaseapp.com",
   projectId: "my-place-review-app",
   storageBucket: "my-place-review-app.appspot.com",
